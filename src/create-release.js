@@ -28,6 +28,9 @@ async function run() {
     const bodyPath = core.getInput('body_path', { required: false });
     const owner = core.getInput('owner', { required: false }) || currentOwner;
     const repo = core.getInput('repo', { required: false }) || currentRepo;
+
+    const generateReleaseNotes = core.getInput('generate_release_notes', { required: false }) || false;
+
     let bodyFileContent = null;
     if ('' !== bodyPath && !!bodyPath) {
       try {
@@ -49,6 +52,7 @@ async function run() {
       draft,
       prerelease,
       target_commitish: commitish,
+      generate_release_notes: generateReleaseNotes,
     });
 
     // Get the ID, html_url, and upload URL for the created Release from the response
