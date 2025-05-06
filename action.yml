@@ -41,6 +41,12 @@ inputs:
       'Repository on which to release.  Used only if you want to create the
       release on another repo'
     required: false
+  generate_release_notes:
+    description:
+      'To generate a release notes for the release. Default: `false`'
+    required: false
+    default: false
+
 outputs:
   id:
     description: 'The ID of the created Release'
