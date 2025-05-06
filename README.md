@@ -23,7 +23,7 @@ For more information on these inputs, see the [API Documentation](https://develo
 - `commitish` : Any branch or commit SHA the Git tag is created from, unused if the Git tag already exists. Default: SHA of current commit
 - `owner`: The name of the owner of the repo. Used to identify the owner of the repository.  Used when cutting releases for external repositories.  Default: Current owner
 - `repo`: The name of the repository. Used to identify the repository on which to release.  Used when cutting releases for external repositories. Default: Current repository
-
+- `generate_release_notes`: `true` to generate release notes for the release. `false` to not generate release notes. Default: `false`
 #### `body_path`
 The `body_path` is valuable for dynamically creating a `.md` within code commits and even within the Github Action steps leading up to the `create-release`.
 

@@ -29,7 +29,8 @@ async function run() {
     const owner = core.getInput('owner', { required: false }) || currentOwner;
     const repo = core.getInput('repo', { required: false }) || currentRepo;
 
-    const generateReleaseNotes = core.getInput('generate_release_notes', { required: false }) || false;
+    const generateReleaseNotes =
+      core.getInput('generate_release_notes', { required: false }) || false;
 
     let bodyFileContent = null;
     if ('' !== bodyPath && !!bodyPath) {
