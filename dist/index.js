@@ -558,7 +558,7 @@ class OidcClient {
                 .catch(error => {
                 throw new Error(`Failed to get ID Token. \n 
         Error Code : ${error.statusCode}\n 
-        Error Message: ${error.result.message}`);
+        Error Message: ${error.message}`);
             });
             const id_token = (_a = res.result) === null || _a === void 0 ? void 0 : _a.value;
             if (!id_token) {
@@ -9630,6 +9630,10 @@ async function run() {
     const bodyPath = core.getInput('body_path', { required: false });
     const owner = core.getInput('owner', { required: false }) || currentOwner;
     const repo = core.getInput('repo', { required: false }) || currentRepo;
+
+    const generateReleaseNotes =
+      core.getInput('generate_release_notes', { required: false }) || false;
+
     let bodyFileContent = null;
     if ('' !== bodyPath && !!bodyPath) {
       try {
@@ -9651,6 +9655,7 @@ async function run() {
       draft,
       prerelease,
       target_commitish: commitish,
+      generate_release_notes: generateReleaseNotes,
     });
 
     // Get the ID, html_url, and upload URL for the created Release from the response
