@@ -9632,7 +9632,7 @@ async function run() {
     const repo = core.getInput('repo', { required: false }) || currentRepo;
 
     const generateReleaseNotes =
-      core.getInput('generate_release_notes', { required: false }) || false;
+      'true' === core.getInput('generate_release_notes', { required: false });
 
     let bodyFileContent = null;
     if ('' !== bodyPath && !!bodyPath) {
